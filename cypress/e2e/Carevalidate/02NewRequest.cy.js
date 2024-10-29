@@ -82,6 +82,7 @@ describe('test suit', () => {
 
     cy.wait(1000)
     cy.logout()
+    cy.wait(1000)
 
   })
 
