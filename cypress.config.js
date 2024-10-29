@@ -3,6 +3,8 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
 
   video : true,
+  screenshotOnRunFailure: true,
+  screenshotsFolder: 'cypress/screenshots',
   reporter: 'cypress-mochawesome-reporter',
   e2e: {
     setupNodeEvents(on, config) {
