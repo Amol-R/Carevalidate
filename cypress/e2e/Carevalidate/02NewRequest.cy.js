@@ -1,5 +1,5 @@
 ///<reference types = "cypress"/>
-
+import 'cypress-file-upload';
 import data from '../../fixtures/example.json'
 import Homepage from '../PageObject/Homepage'
 
@@ -7,7 +7,7 @@ describe('test suit', () => {
 
 
   it('TC01', () => {
-
+    const upload = 'Driving licence.pdf'
     const homepage = new Homepage()
 
     cy.login(data.email, data.emailpassword)
@@ -69,15 +69,19 @@ describe('test suit', () => {
     cy.get('[aria-label="No"] > .q-radio__inner').click()
     homepage.continueClick()
 
+    cy.get('input[type="file"]').attachFile(upload)
+    cy.wait(3000)
+    homepage.continueClick()
 
+    cy.get('.block').contains('Submit').click()
+    cy.wait(2000)
+    cy.get('.q-card .block').eq(1).click()
+    cy.wait(5000)
+    cy.get('.q-card .q-card__section').eq(1).should('contain', ' Thank you for your submission. We have sent you a confirmation email for your records. ')
+    cy.get('.block').contains('Close').click()
 
-
-
-
-
-
-
-
+    cy.wait(1000)
+    cy.logout()
 
   })
 
