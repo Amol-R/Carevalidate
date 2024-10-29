@@ -45,7 +45,7 @@ Cypress.Commands.add('DOB', () => {
     cy.get(':nth-child(5) > div > .q-btn > .q-btn__content > .block').click()
     cy.get('.q-date__view > :nth-child(1) > .q-btn > .q-btn__content > .q-icon').click()
     cy.get('.q-date__view > :nth-child(1) > .q-btn > .q-btn__content > .q-icon').click()
-    cy.get(':nth-child(15) > .q-btn > .q-btn__content > .block').click()
+    cy.get(':nth-child(15) > .q-btn > .q-btn__content > .block').click({ multiple: true })
     cy.get('.relative-position.col > div > .q-btn > .q-btn__content > .block').click()
     cy.get(':nth-child(6) > .q-btn > .q-btn__content > .block').eq(0).click()
     cy.get(':nth-child(16) > .q-btn > .q-btn__content > .block').click()
