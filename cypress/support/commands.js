@@ -30,7 +30,24 @@ Cypress.Commands.add('login', (email, emailpassword) => {
     cy.get('input[type="email"]').type(email)
     cy.get('.text-primary').click()
     cy.get('input[name="password"]').type(emailpassword)
-    cy.get('[data-testid="continue"] > .q-btn__content').click()
+    cy.get('button[type="submit"]').click()
     // cy.get('.oxd-button').click()
-   
- })
+
+})
+
+Cypress.Commands.add('logout', () => {
+    cy.get('.block').click()
+    cy.get('[data-testid="logout"] > .q-item__section').click()
+
+})
+
+Cypress.Commands.add('DOB', () => {
+    cy.get(':nth-child(5) > div > .q-btn > .q-btn__content > .block').click()
+    cy.get('.q-date__view > :nth-child(1) > .q-btn > .q-btn__content > .q-icon').click()
+    cy.get('.q-date__view > :nth-child(1) > .q-btn > .q-btn__content > .q-icon').click()
+    cy.get(':nth-child(15) > .q-btn > .q-btn__content > .block').click()
+    cy.get('.relative-position.col > div > .q-btn > .q-btn__content > .block').click()
+    cy.get(':nth-child(6) > .q-btn > .q-btn__content > .block').eq(0).click()
+    cy.get(':nth-child(16) > .q-btn > .q-btn__content > .block').click()
+
+})
