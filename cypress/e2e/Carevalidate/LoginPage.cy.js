@@ -3,16 +3,20 @@
 import data from '../../fixtures/example.json'
 
 
-describe('Validate with Valide credentials', () => {
+describe('Validate Login page', () => {
 
-    it('TC01', () => {
+    it('With Valide credentials', () => {
         cy.login(data.email, data.emailpassword)
-
+        cy.wait(6000)
+        cy.url().should('contain', 'accommodations/request')
+        cy.logout()
+    
     })
 
-    it('Validate with Invalide credentials', () => {
+    it('With Invalide credentials', () => {
 
         cy.login(data.WRemail, data.WRemailpassword)
+        cy.get('.text-caption').should('contain','Invalid email or password')
 
     })
 
